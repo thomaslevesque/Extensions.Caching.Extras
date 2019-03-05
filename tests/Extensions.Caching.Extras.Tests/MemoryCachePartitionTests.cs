@@ -68,6 +68,6 @@ namespace Extensions.Caching.Extras.Tests
             actualValue.Should().Be(originalValue);
         }
 
-        private IMemoryCachePartition CreatePartition(object partitionKey) => _underlyingCache.GetPartition(partitionKey);
+        private IMemoryCache CreatePartition(object partitionKey) => _underlyingCache.Partition(partitionKey);
     }
 }

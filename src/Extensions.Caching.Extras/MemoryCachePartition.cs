@@ -3,21 +3,23 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace Extensions.Caching.Extras
 {
-    public class MemoryCachePartition : IMemoryCachePartition
+    public class MemoryCachePartition : IMemoryCache
     {
         private readonly IMemoryCache _cache;
 
         public MemoryCachePartition(IMemoryCache cache, object partitionKey)
         {
-            _cache = cache;
-            PartitionKey = partitionKey;
+            _cache = cache ?? throw new ArgumentNullException(nameof(cache));
+            PartitionKey = partitionKey ?? throw new ArgumentNullException(nameof(partitionKey));
         }
 
         public object PartitionKey { get; }
 
         public ICacheEntry CreateEntry(object key)
         {
-            return _cache.CreateEntry(CreateCacheKey(key));
+            var entry = _cache.CreateEntry(CreateCacheKey(key));
+
+            return entry;
         }
 
         public void Remove(object key)
@@ -74,7 +76,7 @@ namespace Extensions.Caching.Extras
         }
     }
 
-    public class MemoryCachePartition<TPartition> : MemoryCachePartition
+    public class MemoryCachePartition<TPartition> : MemoryCachePartition, IMemoryCachePartition<TPartition>
     {
         public MemoryCachePartition(IMemoryCache cache)
             : base(cache, typeof(TPartition))

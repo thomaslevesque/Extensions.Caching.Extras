@@ -2,12 +2,7 @@
 
 namespace Extensions.Caching.Extras
 {
-    public interface IMemoryCachePartition : IMemoryCache
-    {
-        object PartitionKey { get; }
-    }
-
-    public interface IMemoryCachePartition<TPartition> : IMemoryCachePartition
+    public interface IMemoryCachePartition<TPartition> : IMemoryCache
     {
     }
 }
