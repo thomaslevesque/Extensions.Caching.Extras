@@ -1,7 +1,7 @@
 using System;
 using Extensions.Caching.Extras;
 
-namespace  Microsoft.Extensions.Caching.Memory
+namespace Microsoft.Extensions.Caching.Memory
 {
     public static class MemoryCacheExtensions
     {
@@ -15,10 +15,21 @@ namespace  Microsoft.Extensions.Caching.Memory
 
         public static IMemoryCache Partition(this IMemoryCache cache, object partitionKey)
         {
+            if (cache == null)
+                throw new ArgumentNullException(nameof(cache));
+
             if (partitionKey == null) 
                 throw new ArgumentNullException(nameof(partitionKey));
 
             return new MemoryCachePartition(cache, partitionKey);
+        }
+
+        public static IEvictableMemoryCache Evictable(this IMemoryCache cache)
+        {
+            if (cache == null)
+                throw new ArgumentNullException(nameof(cache));
+
+            return new EvictableMemoryCache(cache);
         }
     }
 }
