@@ -11,7 +11,6 @@ namespace Microsoft.Extensions.DependencyInjection
             if (services == null)
                 throw new ArgumentNullException(nameof(services));
 
-            services.TryAddSingleton<IMemoryCachePartitionFactory, MemoryCachePartitionFactory>();
             services.TryAddSingleton(typeof(IMemoryCachePartition<>), typeof(MemoryCachePartition<>));
             return services;
         }
