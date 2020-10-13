@@ -73,6 +73,6 @@ namespace Extensions.Caching.Extras.Tests
             cache.EvictAll();
         }
 
-        private IEvictableMemoryCache CreateEvictableCache() => _underlyingCache.Evictable();
+        private IEvictableMemoryCache CreateEvictableCache() => _underlyingCache.WithEviction();
     }
 }

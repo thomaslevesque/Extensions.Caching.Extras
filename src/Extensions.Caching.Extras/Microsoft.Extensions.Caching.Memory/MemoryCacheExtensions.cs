@@ -24,7 +24,7 @@ namespace Microsoft.Extensions.Caching.Memory
             return new MemoryCachePartition(cache, partitionKey);
         }
 
-        public static IEvictableMemoryCache Evictable(this IMemoryCache cache)
+        public static IEvictableMemoryCache WithEviction(this IMemoryCache cache)
         {
             if (cache == null)
                 throw new ArgumentNullException(nameof(cache));

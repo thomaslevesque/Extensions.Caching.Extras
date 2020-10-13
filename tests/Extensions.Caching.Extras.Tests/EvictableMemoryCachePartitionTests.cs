@@ -71,6 +71,6 @@ namespace Extensions.Caching.Extras.Tests
             cache2.TryGetValue("blah", out _).Should().BeFalse();
         }
 
-        private IEvictableMemoryCache CreateEvictablePartition(object partitionKey) => _underlyingCache.Partition(partitionKey).Evictable();
+        private IEvictableMemoryCache CreateEvictablePartition(object partitionKey) => _underlyingCache.Partition(partitionKey).WithEviction();
     }
 }
