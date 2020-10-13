@@ -17,7 +17,6 @@ namespace Microsoft.Extensions.DependencyInjection
                 throw new InvalidOperationException("A memory cache implementation must be registered. Try registering the default implementation with services.AddMemoryCache()");
 
             services.TryAddSingleton(typeof(IMemoryCachePartition<>), typeof(MemoryCachePartition<>));
-            services.TryAddSingleton(typeof(IEvictableMemoryCachePartition<>), typeof(EvictableMemoryCachePartition<>));
             return services;
         }
     }
