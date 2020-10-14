@@ -61,20 +61,6 @@ type:
 ```
 This gives you a cache partition whose key is `typeof(ProductManager)`.
 
-You can also inject a cache partition directly. Call
-`services.AddCachePartitioning()` in your service registrations, and you'll be able
-to do this:
-
-```csharp
-    public ProductManager(IMemoryCachePartition<ProductManager> cache)
-    {
-        _cache = cache;
-    }
-```
-
-This provides the same behavior as the previous example (a cache partition whose key
-is `typeof(ProductManager)`).
-
 ## Eviction
 
 Out of the box, there's no way to clear a memory cache. You can only remove items one

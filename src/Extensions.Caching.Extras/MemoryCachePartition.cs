@@ -39,12 +39,4 @@ namespace Extensions.Caching.Extras
 
         private object CreateCacheKey(object key) => (PartitionKey, key);
     }
-
-    public class MemoryCachePartition<TPartition> : MemoryCachePartition, IMemoryCachePartition<TPartition>
-    {
-        public MemoryCachePartition(IMemoryCache cache)
-            : base(cache, typeof(TPartition))
-        {
-        }
-    }
 }

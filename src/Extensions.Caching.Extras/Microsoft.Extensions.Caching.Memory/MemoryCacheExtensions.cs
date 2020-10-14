@@ -5,12 +5,12 @@ namespace Microsoft.Extensions.Caching.Memory
 {
     public static class MemoryCacheExtensions
     {
-        public static IMemoryCachePartition<TPartition> Partition<TPartition>(this IMemoryCache cache)
+        public static IMemoryCache Partition<TPartition>(this IMemoryCache cache)
         {
             if (cache == null)
                 throw new ArgumentNullException(nameof(cache));
 
-            return new MemoryCachePartition<TPartition>(cache);
+            return cache.Partition(typeof(TPartition));
         }
 
         public static IMemoryCache Partition(this IMemoryCache cache, object partitionKey)
