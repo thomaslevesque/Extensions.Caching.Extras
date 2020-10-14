@@ -7,10 +7,10 @@ Adds features to Microsoft.Extensions.Caching such as partitioning and eviction
 `IMemoryCache` is registered as a singleton, which means it's shared by the whole
 application. So you need to be careful to avoid key collisions. Consider this scenario:
 - a `ProductManager` class uses product ids as cache keys for products
-- a `CustomerManager` class uses customer ids as cache keys for customers
-If a product and a customer have the same id (which can easily happen if you use
-integer ids) will have the same cache key. So you could end up retrieving a product
-when you try to get a customer from the cache!
+- a `CustomerManager` class uses customer ids as cache keys for customers. If a product
+and a customer have the same id (which can easily happen if you use integer ids), they
+will have the same cache key. So you could end up retrieving a product when you try to
+get a customer from the cache, or vice versa.
 
 A simple solution to this problem is to use a prefix for the cache key, for instance
 something like `$"Products/{id}"`. But it's tedious to add the prefix every time you
@@ -48,9 +48,9 @@ data from another tenant:
     }
 ```
 
-The partition key can be anything, it just needs to implement `Equals` and
-`GetHashCode` correctly. The previous examples used strings, but sometimes it makes
-sense to use types. There's a generic overload of `Partition` for partitioning by
+The partition key can be of any type that implements `Equals` and `GetHashCode`
+correctly. The previous examples used `String`, but sometimes it makes sense to
+use `Type`. There's a generic overload of `Partition` for partitioning by
 type:
 
 ```csharp
