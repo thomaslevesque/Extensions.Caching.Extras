@@ -1,6 +1,8 @@
 # Extensions.Caching.Extras
 
-Adds features to Microsoft.Extensions.Caching such as partitioning and eviction
+Adds features to Microsoft.Extensions.Caching such as partitioning and eviction.
+
+*Note: this is a work in progress, no NuGet package is available yet.*
 
 ## Partitioning
 
