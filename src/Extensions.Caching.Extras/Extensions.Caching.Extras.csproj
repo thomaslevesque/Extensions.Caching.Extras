@@ -7,6 +7,18 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <Authors>Thomas Levesque</Authors>
+    <Title>Extensions.Caching.Extras</Title>
+    <Description>Adds features to Microsoft.Extensions.Caching such as partitioning and eviction.</Description>
+    <PackageProjectUrl>https://github.com/thomaslevesque/Extensions.Caching.Extras</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>caching;memory cache;partition;eviction;.net core</PackageTags>
+    <PackageReleaseNotes>https://github.com/thomaslevesque/Extensions.Caching.Extras/releases</PackageReleaseNotes>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="MinVer" Version="2.3.1" PrivateAssets="all" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="all" />
