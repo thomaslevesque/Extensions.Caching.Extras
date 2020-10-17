@@ -1,5 +1,9 @@
 # Extensions.Caching.Extras
 
+[![NuGet version](https://img.shields.io/nuget/v/Extensions.Caching.Extras.svg?logo=nuget)](https://www.nuget.org/packages/Extensions.Caching.Extras)
+[![AppVeyor build](https://img.shields.io/appveyor/ci/thomaslevesque/extensions-caching-extras.svg?logo=appveyor&logoColor=cccccc)](https://ci.appveyor.com/project/thomaslevesque/extensions-caching-extras)
+[![AppVeyor tests](https://img.shields.io/appveyor/tests/thomaslevesque/extensions-caching-extras.svg?logo=appveyor&logoColor=cccccc)](https://ci.appveyor.com/project/thomaslevesque/extensions-caching-extras/build/tests)
+
 Adds features to Microsoft.Extensions.Caching such as partitioning and eviction.
 
 *Note: this is a work in progress, no NuGet package is available yet.*
